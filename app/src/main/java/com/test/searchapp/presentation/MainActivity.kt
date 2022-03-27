@@ -1,7 +1,8 @@
-package com.test.androiddevtest
+package com.test.searchapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.test.searchapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

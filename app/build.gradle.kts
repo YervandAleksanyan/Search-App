@@ -8,7 +8,7 @@ android {
     compileSdk = Android.compileSdk
 
     defaultConfig {
-        applicationId = "com.test.androiddevtest"
+        applicationId = "com.test.searchapp"
         minSdk = Android.minSdk
         targetSdk = Android.targetSdk
         versionCode = Android.appVersionCode

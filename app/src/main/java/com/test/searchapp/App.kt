@@ -1,4 +1,4 @@
-package com.test.androiddevtest
+package com.test.searchapp
 
 import android.app.Application
 
