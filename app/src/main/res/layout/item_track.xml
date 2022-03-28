@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_track"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="26dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/track_image_view"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginVertical="@dimen/item_track_padding_vertical"
+                android:layout_marginStart="@dimen/item_track_padding_horizontal"
+                tools:src="@mipmap/ic_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/track_title_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_track_padding_horizontal"
+                android:layout_marginEnd="80dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/louis_george_cafe_bold"
+                android:maxLines="2"
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/track_subtitle_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/track_image_view"
+                app:layout_constraintTop_toTopOf="@+id/track_image_view"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Track TitleTrack TitleTrack TitleTrack TitleTrack Title" />
+
+            <TextView
+                android:id="@+id/track_subtitle_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_track_padding_horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="80dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/louis_george_cafe"
+                android:maxLines="2"
+                android:textColor="@color/grey"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/track_image_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/track_image_view"
+                app:layout_constraintTop_toBottomOf="@+id/track_title_text_view"
+                tools:text="Track Subtitle Track SubtitleTrack SubtitleTrack SubtitleTrack SubtitleTrack Subtitle" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+

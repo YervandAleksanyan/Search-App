@@ -16,15 +16,19 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
         jvmTarget = "1.8"
     }
 
-    buildFeatures.dataBinding = true
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -65,6 +69,12 @@ dependencies {
     implementation(Deps.roomRuntime)
     implementation(Deps.roomKtx)
     kapt(Deps.roomKapt)
+
+    //Timber
+    implementation(Deps.timber)
+
+    //Binding
+    implementation(Deps.bindingPropertyDelegate)
 
 
 }

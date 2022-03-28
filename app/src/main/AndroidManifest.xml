@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.test.searchapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.test.searchapp.App"
         android:allowBackup="true"
@@ -11,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidDevTEst">
         <activity
-            android:name="com.test.searchapp.presentation.MainActivity"
+            android:name="com.test.searchapp.feature_search.presentation.view.SearchActivity"
             android:exported="true" />
         <activity
-            android:name="com.test.searchapp.presentation.SplashActivity"
+            android:name="com.test.searchapp.SplashActivity"
             android:exported="true"
             android:theme="@style/LaunchTheme">
             <intent-filter>

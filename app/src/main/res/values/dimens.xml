@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="search_view_padding_vertical">24dp</dimen>
+    <dimen name="search_view_padding_horizontal">20dp</dimen>
+    <dimen name="item_track_padding_vertical">20dp</dimen>
+    <dimen name="item_track_padding_horizontal">16dp</dimen>
+    <dimen name="list_view_vertical_margin">24dp</dimen>
+    <dimen name="list_view_bottom_margin">29dp</dimen>
+    <dimen name="list_view_top_margin">40dp</dimen>
+</resources>

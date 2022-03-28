@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Search App</string>
+    <string name="search_input_hint">Search %1$s tracks</string>
+    <string name="empty_message">Nothing found,\n Please search something else.</string>
 </resources>

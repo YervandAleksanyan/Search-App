@@ -34,6 +34,9 @@ object Deps {
     val roomRuntime = "androidx.room:room-runtime:$roomVersion"
     val roomKapt = "androidx.room:room-compiler:$roomVersion"
     val roomKtx = "androidx.room:room-ktx:$roomVersion"
+    const val timber = "com.jakewharton.timber:timber:5.0.1"
+    const val bindingPropertyDelegate =
+        "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3"
 
     object Androidx {
         private const val lifecycleVersion = "2.2.0"
