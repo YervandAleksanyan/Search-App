@@ -5,5 +5,6 @@ import com.test.searchapp.feature_search.data.model.TrackDataModel
 import kotlinx.coroutines.flow.Flow
 
 interface TracksRepository {
-     fun getTracks(): Flow<Result<List<TrackDataModel>>>
+    fun getTracks(): Flow<Result<List<TrackDataModel>>>
+    suspend fun searchTracks(query: String): List<TrackDataModel>
 }

@@ -1,8 +1,6 @@
 package com.test.searchapp.feature_search.data.model.db
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.Fts4
+import androidx.room.*
 
 @Entity(tableName = "tracks_fts")
 @Fts4(contentEntity = TrackEntity::class)

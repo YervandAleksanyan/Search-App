@@ -8,6 +8,7 @@ import com.test.searchapp.feature_search.data.data_source.remote.TracksRemoteDat
 import com.test.searchapp.feature_search.data.model.TrackDataModel
 import com.test.searchapp.feature_search.data.model.db.TrackEntity
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class TracksRepositoryImpl(
     private val tracksLocalDataSource: TracksLocalDataSource,
@@ -22,7 +23,7 @@ class TracksRepositoryImpl(
                         TrackDataModel(
                             trackId = it.trackId,
                             trackImageUrl = it.trackImageUrl,
-                            trackTitle = it.trackSubtitle,
+                            trackTitle = it.trackTitle,
                             trackSubtitle = it.trackSubtitle
                         )
                     }
@@ -33,7 +34,7 @@ class TracksRepositoryImpl(
                         TrackDataModel(
                             trackId = trackResponse.trackId,
                             trackImageUrl = trackResponse.trackImageUrl,
-                            trackTitle = trackResponse.trackSubtitle,
+                            trackTitle = trackResponse.trackTitle,
                             trackSubtitle = trackResponse.trackSubtitle
                         )
                     }
@@ -43,12 +44,23 @@ class TracksRepositoryImpl(
                     TrackEntity(
                         trackId = trackDataModel.trackId,
                         trackImageUrl = trackDataModel.trackImageUrl,
-                        trackTitle = trackDataModel.trackSubtitle,
+                        trackTitle = trackDataModel.trackTitle,
                         trackSubtitle = trackDataModel.trackSubtitle
                     )
                 })
             }
         )
     }
+
+    override suspend fun searchTracks(query: String): List<TrackDataModel> =
+        tracksLocalDataSource.search(query)
+            .map { trackEntity ->
+                TrackDataModel(
+                    trackId = trackEntity.trackId,
+                    trackImageUrl = trackEntity.trackImageUrl,
+                    trackTitle = trackEntity.trackTitle,
+                    trackSubtitle = trackEntity.trackSubtitle
+                )
+            }
 
 }

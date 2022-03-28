@@ -1,12 +1,15 @@
 package com.test.searchapp.feature_search.presentation.view
 
 import android.os.Bundle
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.snackbar.Snackbar
 import com.test.searchapp.R
 import com.test.searchapp.core.adapter.MarginItemDecoration
+import com.test.searchapp.core.extensions.hideKeyboard
 import com.test.searchapp.core.model.ViewState
 import com.test.searchapp.databinding.ActivitySearchBinding
 import com.test.searchapp.feature_search.presentation.viewmodel.SearchViewModel
@@ -31,6 +34,21 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
     private fun setupViews() {
         setupSearchView()
         setupTrackRecyclerView()
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                viewModel.search(p0)
+                return true
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                if (p0.isNullOrEmpty()) {
+                    viewModel.search(p0)
+                }
+                return p0.isNullOrEmpty()
+            }
+
+        })
+
     }
 
     private fun setupTrackRecyclerView() {
@@ -64,9 +82,12 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
                     binding.emptyLayout.isVisible = true
                 }
                 is ViewState.Error -> {
+                    binding.root.hideKeyboard()
                     binding.tracksRv.isVisible = false
                     binding.progressBar.isVisible = false
                     binding.emptyLayout.isVisible = false
+                    Snackbar.make(binding.root, "${viewState.errorMessage}", Snackbar.LENGTH_LONG)
+                        .show()
                 }
                 ViewState.Loading -> {
                     binding.tracksRv.isVisible = false
@@ -82,6 +103,7 @@ class SearchActivity : AppCompatActivity(R.layout.activity_search) {
                         viewState.data.size.toString()
                     )
                     tracksAdapter.setData(viewState.data)
+                    binding.tracksRv.scrollToPosition(0)
                 }
             }
         }

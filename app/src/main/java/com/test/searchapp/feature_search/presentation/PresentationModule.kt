@@ -9,6 +9,7 @@ val presentationModule = module {
     viewModel {
         SearchViewModel(
             getTracksUseCase = get(),
+            searchTracksUseCase = get()
         )
     }
 

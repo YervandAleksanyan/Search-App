@@ -17,7 +17,7 @@ abstract class BaseViewModel<S> : ViewModel(), DefaultLifecycleObserver {
     val viewState
         get() = viewStateLiveData.value
 
-    private var loadDataJob: Job? = null
+    protected var loadDataJob: Job? = null
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
